@@ -1,0 +1,24 @@
+{
+  "name": "hackmol-backend",
+  "version": "1.0.0",
+  "description": "backend server for hackmol project --fin track",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/princeverma-ai/hackmol-backend.git"
+  },
+  "author": "prince",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/princeverma-ai/hackmol-backend/issues"
+  },
+  "homepage": "https://github.com/princeverma-ai/hackmol-backend#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "mongoose": "^6.2.3",
+    "nodemon": "^2.0.15"
+  }
+}
