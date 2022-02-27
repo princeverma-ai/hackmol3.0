@@ -16,7 +16,7 @@ let username = document.querySelector(".name");
 let useremail = document.querySelector(".id");
 
 username.innerText=user.name;
-email.innerText=user.email;
+useremail.innerText=user.email;
 
 menuButton.addEventListener("click", (e) => {
   if (!sideBarOpened) {
