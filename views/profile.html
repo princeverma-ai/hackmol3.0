@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -16,6 +15,7 @@
       type="text/javascript"
       src="https://www.gstatic.com/charts/loader.js"
     ></script>
+    <link rel="shortcut icon" type="image/png" href="/assets/favicon.png"/>
     <!-- css -->
     <link rel="stylesheet" href="css/profile.css" />
     <title>Profile</title>
@@ -79,7 +79,34 @@
       </button>
 
       <div class="mainDiv">
-        <h1>Profile</h1>
+        <img
+          class="user-icon"
+          src="assets/user.png"
+          alt="user-icon"
+          width="150px"
+          height="150px"
+        />
+        <div class="details">
+          <div class="user-name">
+            <span
+              ><b>UserName </b> <span class="name user-name">Prince</span></span
+            >
+          </div>
+          <div class="user-id">
+            <span
+              ><b>Email </b
+              ><span class="id user-id">prince@gmail.com</span></span
+            >
+          </div>
+          <div class="user-pass">
+            <span
+              ><b>Password </b><span class="pass user-pass">*****</span></span
+            >
+          </div>
+          <div>
+            <button class="edit">Edit Profile</button>
+          </div>
+        </div>
       </div>
     </main>
 

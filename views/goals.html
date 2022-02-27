@@ -16,6 +16,8 @@
       type="text/javascript"
       src="https://www.gstatic.com/charts/loader.js"
     ></script>
+    <link rel="shortcut icon" type="image/png" href="/assets/favicon.png"/>
+
     <!-- css -->
     <link rel="stylesheet" href="css/goals.css" />
     <title>Goals</title>
@@ -78,9 +80,25 @@
         </svg>
       </button>
 
-      <div class="mainDiv">
-        <h1>Goals</h1>
-      </div>
+      <h1><b>SAVING GOALS</b></h1>
+
+        <div class="formDiv">
+            <form  action="/expenses" method="POST">
+                    <input name="goalMon" type="text" class="feedback-input" placeholder="This month's Goal"/>
+                    <div class="button"><button type="submit">CONFIRM</button></div>
+            </form>
+        </div>
+
+        <div class="progressBar">
+            <label for="file">Savings progress:</label>
+               <progress value="50" max="100">50%</progress>
+           </div>
+    
+
+        </div>
+        <div id="expensePieChart" style=" width: 600px; height: 400px;"></div>
+        <div id="incomePieChart" style=" width: 600px; height: 400px;"></div>
+        </div>
     </main>
 
     <footer class="flexCenter">&copy; 2022, FinTrack</footer>

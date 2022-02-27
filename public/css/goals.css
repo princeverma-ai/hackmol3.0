@@ -8,26 +8,31 @@
 body {
   min-height: 100vh;
   overflow-x: hidden;
+  text-align: center;
 }
+
 body::-webkit-scrollbar {
   width: 0 !important;
 }
-.flex {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
-.flexCenter {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+
 header {
   position: relative;
   width: 100vw;
   height: 9vh;
   background-color: rgb(247, 247, 247);
   padding: 0rem 1rem;
+}
+
+.flex {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .brand {
@@ -37,10 +42,46 @@ header {
 
   justify-content: center;
 }
+
 .brandImg {
   position: relative;
   width: max-content;
   height: 100%;
+}
+
+main {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  height: 200vh;
+}
+
+h1 {
+  text-align: center;
+  color: #03045e;
+}
+
+.mainDiv {
+  position: absolute;
+  text-align: center;
+  width: 90%;
+  height: 80rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(243, 247, 252);
+  border-radius: 20px;
+}
+
+.mainDiv h1 {
+  position: relative;
+  top: 2rem;
+  /* left: 3rem; */
+  text-align: center;
+
+  font-weight: normal;
+  font-size: 3rem;
+  color: #03045e;
 }
 
 .menuIcons {
@@ -51,15 +92,9 @@ header {
   justify-content: flex-end;
   padding-right: 0.5rem;
 }
+
 .menuIcons svg {
   margin: 0 1rem;
-}
-
-main {
-  position: relative;
-  width: 100vw;
-  min-height: 100vh;
-  height: 200vh;
 }
 
 .menuDiv {
@@ -75,15 +110,103 @@ main {
   z-index: 2;
 }
 
-.mainDiv {
+table {
+  border-collapse: collapse;
+  /* border-spacing: -1; */
+  width: 100%;
+  border: 2px solid #ddd;
+}
+
+th,
+td {
+  text-align: center;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.tableHeader {
+  background-color: #a7b5cf;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.tableDiv {
+  font-family: "Merriweather", serif;
+  overflow-x: auto;
+  margin: 4rem;
+}
+
+/* form */
+
+.formDiv {
+  margin-top: 3rem;
+  position: relative;
+  align-items: center;
+}
+
+.feedback-input {
+  color: #03045e;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  border-radius: 5px;
+  line-height: 22px;
+  border: 2px solid #203768;
+  transition: all 0.3s;
+  padding: 13px;
+  margin-bottom: 15px;
+  width: 50%;
+  box-sizing: border-box;
+  outline: 0;
+  /* display:inline-block; */
+  display: inline;
+}
+
+.button {
+  width: 100%;
+  /* align-self: center; */
   position: absolute;
-  width: 90%;
-  height: 80rem;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: rgb(243, 247, 252);
-  border-radius: 20px;
+  justify-self: center;
+  align-items: center;
+  /* margin: auto;  */
+  margin-left: 33%;
+}
+
+.feedback-input:focus {
+  border: 2px solid #0077b6;
+}
+
+[type="submit"] {
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+  width: 33%;
+  background: #3db185;
+  border-radius: 5px;
+  border: 0;
+  cursor: pointer;
+  color: white;
+  font-size: 24px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  transition: all 0.3s;
+  margin-top: -4px;
+  font-weight: 700;
+  display: block;
+}
+
+[type="submit"]:hover {
+  background: #2a6d4e;
+}
+
+footer {
+  position: relative;
+  width: 100vw;
+  height: 7vh;
+  background-color: black;
+  color: white;
 }
 
 .sideBar {
@@ -104,10 +227,12 @@ main {
   flex-direction: column;
   padding: 1rem 0rem;
 }
+
 .sideBar h2 {
   font-size: 2rem;
   position: relative;
 }
+
 .sideBar ul {
   position: relative;
   list-style: none;
@@ -115,6 +240,7 @@ main {
   width: 100;
   margin-top: 2rem;
 }
+
 .sideBar ul li {
   display: flex;
   justify-content: center;
@@ -126,6 +252,7 @@ main {
   cursor: pointer;
   transition: 200ms;
 }
+
 .sideBar ul li:hover {
   background-color: #d8f0f5;
 }
@@ -136,36 +263,75 @@ main {
   font-weight: normal;
   cursor: pointer;
 }
+
 .sideBarComeInAnimation {
   animation: sideComeIn 300ms ease-out forwards;
 }
+
 @keyframes sideComeIn {
   0% {
     transform: translateX(-100%);
   }
+
   100% {
     box-shadow: 0px 0px 10px 1px rgb(196, 196, 196);
     transform: translateX(0%);
   }
 }
+
 .sideBarGoAnimation {
   animation: sideGo 300ms ease-out forwards;
 }
+
 @keyframes sideGo {
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(-100%);
   }
 }
 
-footer {
-  position: relative;
-  width: 100vw;
-  height: 7vh;
-  background-color: black;
-  color: white;
+#manageIncome,
+#manageExpense {
+  position: absolute;
+  height: 2rem;
+  background: none;
+  align-self: flex-end;
+  border: none;
+  cursor: pointer;
 }
 
+#manageIncome svg,
+#manageExpense svg {
+  margin-right: 0.5rem;
+  transform: translateY(2px);
+}
 
+#expensePieChart {
+  position: flex;
+  display: inline-block;
+  /* right: -0.2rem; */
+  top: 5rem;
+  width: 50%;
+  z-index: 1;
+}
+
+#incomePieChart {
+  position: flex;
+  display: inline-block;
+  width: 50%;
+  /* left: -0.2rem; */
+  top: 5rem;
+}
+
+progress {
+  width: 300px;
+  height: 30px;
+}
+
+.progressBar {
+  margin-top: 7%;
+  margin-bottom: 5%;
+}

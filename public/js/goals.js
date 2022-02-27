@@ -12,6 +12,53 @@ logoutButton = document.querySelector("#logoutButton");
 
 sideBarOpened = false;
 
+//charts
+google.charts.load("current", { packages: ["corechart"] });
+google.charts.setOnLoadCallback(drawChart);
+
+function drawChart() {
+  var incomeData = google.visualization.arrayToDataTable([
+    ["Source", "Value"],
+    ["Family", 5000],
+    ["Internship", 2000],
+    ["website selling", 4000],
+    ["marketing", 1500],
+    ["shares", 5800],
+  ]);
+
+  var incomeOptions = {
+    title: "Income Sources",
+    backgroundColor: "rgb(243, 247, 252)",
+    pieHole: 0.4,
+  };
+
+  var incomeChart = new google.visualization.PieChart(
+    document.getElementById("incomePieChart")
+  );
+
+  incomeChart.draw(incomeData, incomeOptions);
+
+  var expenseData = google.visualization.arrayToDataTable([
+    ["Source", "Value"],
+    ["party", 2000],
+    ["shoes", 3000],
+    ["netflix", 199],
+    ["stationary", 1000],
+    ["clothes", 5800],
+  ]);
+
+  var expenseOptions = {
+    title: "Expenses",
+    backgroundColor: "rgb(243, 247, 252)",
+    pieHole: 0.4,
+  };
+
+  var expenseChart = new google.visualization.PieChart(
+    document.getElementById("expensePieChart")
+  );
+
+  expenseChart.draw(expenseData, expenseOptions);
+}
 menuButton.addEventListener("click", (e) => {
   if (!sideBarOpened) {
     sideBar.classList.add("sideBarComeInAnimation");

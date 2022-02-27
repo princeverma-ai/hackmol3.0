@@ -76,6 +76,7 @@ main {
 }
 
 .mainDiv {
+  text-align: center;
   position: absolute;
   width: 90%;
   height: 80rem;
@@ -168,4 +169,93 @@ footer {
   color: white;
 }
 
+table {
+  border-collapse: collapse;
+  /* border-spacing: -1; */
+  width: 100%;
+  border: 2px solid #ddd;
+}
 
+th,
+td {
+  text-align: center;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.tableHeader {
+  background-color: #a7b5cf;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.tableDiv {
+  font-family: "Merriweather", serif;
+  overflow-x: auto;
+  margin: 4rem;
+}
+
+/* form */
+
+.formDiv {
+  margin-top: 3rem;
+  position: relative;
+  align-items: center;
+}
+
+.feedback-input {
+  color: #03045e;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  border-radius: 5px;
+  line-height: 22px;
+  border: 2px solid #203768;
+  transition: all 0.3s;
+  padding: 13px;
+  margin-bottom: 15px;
+  width: 50%;
+  box-sizing: border-box;
+  outline: 0;
+  /* display:inline-block; */
+  display: inline;
+}
+
+.button {
+  width: 100%;
+  /* align-self: center; */
+  position: absolute;
+  justify-self: center;
+  align-items: center;
+  /* margin: auto;  */
+  margin-left: 33%;
+}
+
+.feedback-input:focus {
+  border: 2px solid #0077b6;
+}
+
+[type="submit"] {
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+  width: 33%;
+  background: #3db185;
+  border-radius: 5px;
+  border: 0;
+  cursor: pointer;
+  color: white;
+  font-size: 24px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  transition: all 0.3s;
+  margin-top: -4px;
+  font-weight: 700;
+  display: block;
+}
+
+[type="submit"]:hover {
+  background: #2a6d4e;
+}
