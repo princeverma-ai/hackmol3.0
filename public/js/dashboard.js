@@ -14,6 +14,15 @@ manageIncome = document.querySelector("#manageIncome");
 manageExpense = document.querySelector("#manageExpense");
 sideBarOpened = false;
 
+totalIncome = document.querySelector("#totalIncome");
+totalExpense = document.querySelector("#totalExpense");
+totalSaving = document.querySelector("#totalSaving");
+
+totalIncome.innerText = getTotalIncome(user.incomeSources);
+totalExpense.innerText = getTotalExpense(user.expenses);
+totalSaving.innerText =
+  getTotalIncome(user.incomeSources) - getTotalExpense(user.expenses);
+
 menuButton.addEventListener("click", (e) => {
   if (!sideBarOpened) {
     sideBar.classList.add("sideBarComeInAnimation");
@@ -87,14 +96,7 @@ google.charts.load("current", { packages: ["corechart"] });
 google.charts.setOnLoadCallback(drawChart);
 
 function drawChart() {
-  var incomeData = google.visualization.arrayToDataTable([
-    ["Source", "Value"],
-    ["Family", 5000],
-    ["Internship", 2000],
-    ["website selling", 4000],
-    ["marketing", 1500],
-    ["shares", 5800],
-  ]);
+  var incomeData = google.visualization.arrayToDataTable(makeVisualizationData(user.incomeSources));
 
   var incomeOptions = {
     title: "Income Sources",
@@ -108,14 +110,7 @@ function drawChart() {
 
   incomeChart.draw(incomeData, incomeOptions);
 
-  var expenseData = google.visualization.arrayToDataTable([
-    ["Source", "Value"],
-    ["party", 2000],
-    ["shoes", 3000],
-    ["netflix", 199],
-    ["stationary", 1000],
-    ["clothes", 5800],
-  ]);
+  var expenseData = google.visualization.arrayToDataTable(makeVisualizationData(user.expenses));
 
   var expenseOptions = {
     title: "Expenses",

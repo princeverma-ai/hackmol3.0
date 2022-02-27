@@ -7,6 +7,8 @@ const Router = express.Router();
 Router.route("/signup").post(userController.signUp);
 Router.route("/login").post(userController.login);
 
+Router.route("/getUser").post(userController.getUser);
+
 Router.route("/dashboard").get(pagesController.getDashboard);
 Router.route("/profile").get(pagesController.getProfile);
 Router.route("/income").get(pagesController.getIncome);

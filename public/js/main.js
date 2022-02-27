@@ -12,6 +12,28 @@ let logoutButton = document.querySelector("#logoutButton");
 let manageIncome = document.querySelector("#manageIncome");
 let manageExpense = document.querySelector("#manageExpense");
 
+let totalIncome = document.querySelector("#totalIncome");
+let totalExpense = document.querySelector("#totalExpense");
+let totalSaving = document.querySelector("#totalSaving");
+
+function getTotalIncome(incomeArray) {
+  let totalIncome = 0;
+  for (let element of incomeArray) {
+    totalIncome += element.value;
+  }
+  return totalIncome;
+}
+function getTotalExpense(expenseArray) {
+  let totalExpense = 0;
+  for (let element of expenseArray) {
+    totalExpense += element.value;
+  }
+  return totalExpense;
+}
+function getSavings(incomeArray, expenseArray) {
+  return getTotalIncome(incomeArray) - getTotalExpense(expenseArray);
+}
+
 //side bar
 let sideBarOpened = false;
 
@@ -34,20 +56,25 @@ menuButton.addEventListener("click", (e) => {
     }, 300);
   }
 });
-
+totalIncome.innerText = getTotalIncome(user.incomeSources);
+totalExpense.innerText = getTotalExpense(user.expenses);
+totalSaving.innerText =
+  getTotalIncome(user.incomeSources) - getTotalExpense(user.expenses);
 //charts
 google.charts.load("current", { packages: ["corechart"] });
 google.charts.setOnLoadCallback(drawChart);
 
+function makeVisualizationData(dataArray) {
+  let array=[];
+  for(let elem of dataArray){
+    array.push([elem.name,elem.value]);
+  }
+  array.unshift(["Name","Value"]);
+  return array;
+}
+
 function drawChart() {
-  var incomeData = google.visualization.arrayToDataTable([
-    ["Source", "Value"],
-    ["Family", 5000],
-    ["Internship", 2000],
-    ["website selling", 4000],
-    ["marketing", 1500],
-    ["shares", 5800],
-  ]);
+  var incomeData = google.visualization.arrayToDataTable(makeVisualizationData(user.incomeSources));
 
   var incomeOptions = {
     title: "Income Sources",
@@ -61,14 +88,7 @@ function drawChart() {
 
   incomeChart.draw(incomeData, incomeOptions);
 
-  var expenseData = google.visualization.arrayToDataTable([
-    ["Source", "Value"],
-    ["party", 2000],
-    ["shoes", 3000],
-    ["netflix", 199],
-    ["stationary", 1000],
-    ["clothes", 5800],
-  ]);
+  var expenseData = google.visualization.arrayToDataTable(makeVisualizationData(user.expenses));
 
   var expenseOptions = {
     title: "Expenses",

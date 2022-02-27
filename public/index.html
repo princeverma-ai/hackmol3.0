@@ -25,16 +25,23 @@
         <div class="form-content">
           <div class="login-form">
             <div class="title"><b>Login</b></div>
-            <form action="/login" method="post">
+            <form>
               <div class="input-boxes">
                 <div class="input-box">
                   <i class="fas fa-envelope"></i>
-                  <input name="email" type="text" placeholder="Enter your email" required />
+                  <input
+                    name="email"
+                    id="loginEmail"
+                    type="text"
+                    placeholder="Enter your email"
+                    required
+                  />
                 </div>
                 <div class="input-box">
                   <i class="fas fa-lock"></i>
                   <input
-                  name="password"
+                    id="loginPassword"
+                    name="password"
                     type="password"
                     placeholder="Enter your password"
                     required
@@ -42,7 +49,7 @@
                 </div>
                 <div class="text"><a href="#">Forgot password?</a></div>
                 <div class="button input-box">
-                  <input type="submit" value="Submit" />
+                  <div id="loginSubmit" value="Submit">Submit</div>
                 </div>
                 <div class="text sign-up-text">
                   Don't have an account? <label for="flip">Regsiter now</label>
@@ -65,7 +72,12 @@
                 </div>
                 <div class="input-box">
                   <i class="fas fa-envelope"></i>
-                  <input name="email" type="text" placeholder="Enter your email" required />
+                  <input
+                    name="email"
+                    type="text"
+                    placeholder="Enter your email"
+                    required
+                  />
                 </div>
                 <div class="input-box">
                   <i class="fas fa-lock"></i>
@@ -88,5 +100,7 @@
         </div>
       </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="js/index.js"></script>
   </body>
 </html>
