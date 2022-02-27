@@ -19,21 +19,35 @@ let totalSaving = document.querySelector("#totalSaving");
 function getTotalIncome(incomeArray) {
   let totalIncome = 0;
   for (let element of incomeArray) {
-    totalIncome += element.value;
+    totalIncome += element.amount;
   }
   return totalIncome;
 }
 function getTotalExpense(expenseArray) {
   let totalExpense = 0;
   for (let element of expenseArray) {
-    totalExpense += element.value;
+    totalExpense += element.amount;
   }
   return totalExpense;
 }
 function getSavings(incomeArray, expenseArray) {
   return getTotalIncome(incomeArray) - getTotalExpense(expenseArray);
 }
-
+axios({
+  method: "post",
+  url: "/getUser",
+  data: {
+    email: user.email,
+    password: user.password,
+  },
+})
+  .then((data) => {
+    console.log(data.data.user);
+    user = data.data.user;
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 //side bar
 let sideBarOpened = false;
 
@@ -65,16 +79,22 @@ google.charts.load("current", { packages: ["corechart"] });
 google.charts.setOnLoadCallback(drawChart);
 
 function makeVisualizationData(dataArray) {
-  let array=[];
-  for(let elem of dataArray){
-    array.push([elem.name,elem.value]);
+  let array = [];
+  for (let elem of dataArray) {
+    array.push([elem.name, elem.value]);
   }
-  array.unshift(["Name","Value"]);
+  array.unshift(["Name", "Value"]);
   return array;
 }
 
 function drawChart() {
-  var incomeData = google.visualization.arrayToDataTable(makeVisualizationData(user.incomeSources));
+  var incomeData = google.visualization.arrayToDataTable([
+    ["Source", "Value"],
+    ["Home", 5000],
+    ["internship", 2000],
+    ["shares", 500],
+    ["marketing", 400],
+  ]);
 
   var incomeOptions = {
     title: "Income Sources",
@@ -88,7 +108,14 @@ function drawChart() {
 
   incomeChart.draw(incomeData, incomeOptions);
 
-  var expenseData = google.visualization.arrayToDataTable(makeVisualizationData(user.expenses));
+  var expenseData = google.visualization.arrayToDataTable([
+    ["Source", "Value"],
+    ["party", 2000],
+    ["shoes", 3000],
+    ["netflix", 199],
+    ["stationary", 1000],
+    ["clothes", 5800],
+  ]);
 
   var expenseOptions = {
     title: "Expenses",

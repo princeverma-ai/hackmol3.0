@@ -64,3 +64,41 @@ exports.getUser = async function (req, res) {
     console.log("Error 💣💣" + error);
   }
 };
+//---------------------------------------------------------------------------
+exports.addIncome = async function (req, res) {
+  try {
+    const user=await User.findById(req.params.id);
+    console.log( user.incomeSources)
+    user.incomeSources.push({name:req.body.name,amount:req.body.amount,description:req.body.description});
+    const updatedUser=await User.findByIdAndUpdate(req.params.id,user);
+    res.status(200).json({
+      status:"Succes",
+      user:updatedUser
+    })
+  } catch (error) {
+    res.status(400).json({
+      status: "An error occured",
+      message: error,
+    });
+    console.log("Error 💣💣" + error);
+  }
+};
+//---------------------------------------------------------------------------
+exports.addExpense = async function (req, res) {
+  try {
+    const user=await User.findById(req.params.id);
+    console.log( user.expenses)
+    user.expenses.push({name:req.body.name,amount:req.body.amount,description:req.body.description});
+    const updatedUser=await User.findByIdAndUpdate(req.params.id,user);
+    res.status(200).json({
+      status:"Succes",
+      user:updatedUser
+    })
+  } catch (error) {
+    res.status(400).json({
+      status: "An error occured",
+      message: error,
+    });
+    console.log("Error 💣💣" + error);
+  }
+};

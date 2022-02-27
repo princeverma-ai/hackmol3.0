@@ -16,7 +16,6 @@ const userSchema = new mongoose.Schema(
     password: {
       type: String,
       required: [true, "Password is required"],
-      select: false,
     },
     accountCreationTime: {
       type: Date,
@@ -30,16 +29,16 @@ const userSchema = new mongoose.Schema(
     },
     incomeSources: {
       type: [Object],
-      default: [{}],
+      default: [],
     },
     expenses: {
       type: [Object],
-      default: [{}],
+      default: [],
     },
 
     SavingGoals: {
-      type: [Object],
-      default: [{}],
+      type: Number,
+      default: 0,
     },
   },
   {

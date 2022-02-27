@@ -16,7 +16,7 @@
       type="text/javascript"
       src="https://www.gstatic.com/charts/loader.js"
     ></script>
-    <link rel="shortcut icon" type="image/png" href="/assets/favicon.png"/>
+    <link rel="shortcut icon" type="image/png" href="/assets/favicon.png" />
 
     <!-- css -->
     <link rel="stylesheet" href="css/income.css" />
@@ -84,56 +84,41 @@
         <h1><b>Income</b></h1>
 
         <div class="tableDiv">
-          <table>
+          <table id="incomeTable">
             <tr>
               <th class="tableHeader">Date</th>
               <th class="tableHeader">Amount</th>
               <th class="tableHeader">Category</th>
               <th class="tableHeader">Details</th>
             </tr>
-            <tr>
-              <td>12-12-12</td>
-              <td>1009</td>
-              <td>Food</td>
-              <td>haygdujhbsjkxcxbxxh</td>
-            </tr>
-            <tr>
-              <td>12-12-12</td>
-              <td>1009</td>
-              <td>Food</td>
-              <td>haygdujhbsjkxcxbxxh</td>
-            </tr>
-            <tr>
-              <td>12-12-12</td>
-              <td>1009</td>
-              <td>Food</td>
-              <td>haygdujhbsjkxcxbxxh</td>
-            </tr>
           </table>
         </div>
         <div class="formDiv">
-          <form action="/expenses" method="POST">
+          <div>
             <!-- <input name="source" type="text" class="feedback-input" placeholder="Source" />    -->
             <input
               name="amount"
               type="number"
               class="feedback-input"
               placeholder="Amount"
+              id="incomeAmount"
             />
             <input
               name="category"
               type="text"
               class="feedback-input"
               placeholder="Category"
+              id="incomeName"
             />
             <input
               name="desc"
               type="text"
               class="feedback-input"
               placeholder="Desc"
+              id="incomeDescription"
             />
-            <div class="button"><button type="submit">UPDATE</button></div>
-          </form>
+            <div class="button"><button id="incomeAdd">Add</button></div>
+          </div>
         </div>
       </div>
     </main>

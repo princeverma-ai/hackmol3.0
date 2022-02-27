@@ -32,6 +32,49 @@ menuButton.addEventListener("click", (e) => {
   }
 });
 
+let expensesTable=document.querySelector('#expensesTable')
+let expenseAmount = document.querySelector("#expenseAmount");
+let expenseName = document.querySelector("#expenseName");
+let expenseDescription = document.querySelector("#expenseDescription");
+let expenseAdd = document.querySelector("#expenseAdd");
+
+expenseAdd.addEventListener("click", (e) => {
+  axios({
+    method: "post",
+    url: `/${user._id}/addExpense`,
+    data: {
+      name: expenseName.value,
+      amount: expenseAmount.value,
+      description: expenseDescription.value,
+    },
+  })
+    .then((data) => {
+      console.log(data);
+      expensesTable.innerHTML += `<tr>
+      <td>${(new Date()).getDate()}</td>
+      <td>${expenseAmount.value}</td>
+      <td>${expenseName.name}</td>
+      <td>${expenseDescription.value}</td>
+    </tr>`
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+function updateTable(incomeArray) {
+  let fullTable = ``;
+  for (let elem of incomeArray) {
+    fullTable += `<tr>
+  <td>${elem.date}</td>
+  <td>${elem.value}</td>
+  <td>${elem.name}</td>
+  <td>${elem.details}</td>
+</tr>`;
+  }
+  expensesTable.innerHTML += fullTable;
+}
+updateTable(user.expenses);
+
 renderHtml = function (htmlString) {
   document.open("text/html", "replace");
   document.write(htmlString);

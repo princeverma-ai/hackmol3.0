@@ -17,6 +17,7 @@ Router.route("/goals").get(pagesController.getGoals);
 Router.route("/analytics").get(pagesController.getAnalytics);
 Router.route("/logout").get(pagesController.logout);
 
-// Router.route("/:id/").post(userController.getUser);
+Router.route("/:id/addIncome").post(userController.addIncome);
+Router.route("/:id/addExpense").post(userController.addExpense);
 
 module.exports = Router;

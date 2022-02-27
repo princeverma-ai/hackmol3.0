@@ -10,6 +10,50 @@ analyticsButton = document.querySelector("#analyticsButton");
 goalsButton = document.querySelector("#goalsButton");
 logoutButton = document.querySelector("#logoutButton");
 
+let table = document.querySelector("#incomeTable");
+
+let incomeAmount = document.querySelector("#incomeAmount");
+let incomeName = document.querySelector("#incomeName");
+let incomeDescription = document.querySelector("#incomeDescription");
+let incomeAdd = document.querySelector("#incomeAdd");
+
+incomeAdd.addEventListener("click", (e) => {
+  axios({
+    method: "post",
+    url: `/${user._id}/addIncome`,
+    data: {
+      name: incomeName.value,
+      amount: incomeAmount.value,
+      description: incomeDescription.value,
+    },
+  })
+    .then((data) => {
+      console.log(data);
+      table.innerHTML += `<tr>
+      <td>${(new Date()).getDate()}</td>
+      <td>${incomeAmount.value}</td>
+      <td>${incomeName.name}</td>
+      <td>${incomeDescription.value}</td>
+    </tr>`
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+function updateTable(incomeArray) {
+  let fullTable = ``;
+  for (let elem of incomeArray) {
+    fullTable += `<tr>
+  <td>${elem.date}</td>
+  <td>${elem.value}</td>
+  <td>${elem.name}</td>
+  <td>${elem.details}</td>
+</tr>`;
+  }
+  table.innerHTML += fullTable;
+}
+updateTable(user.incomeSources);
+
 sideBarOpened = false;
 menuButton.addEventListener("click", (e) => {
   if (!sideBarOpened) {
