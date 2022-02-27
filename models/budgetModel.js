@@ -3,13 +3,19 @@ const mongoose = require("mongoose");
 //USER SCHEMA-------------------------------------------------
 const budgetSchema = new mongoose.Schema(
   {
+    name: String,
     incomeSources: {
-      type: [Array],
+      type: [Object],
     },
     expenses: {
-      type: [Array],
+      type: [Object],
+    },
+    savingsTarget: Array,
+    goals: {
+      type: Array,
     },
   },
+
   {
     toJSON: { virtuals: true },
     toOject: { vituals: true },

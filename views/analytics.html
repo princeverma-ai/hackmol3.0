@@ -12,10 +12,13 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap"
       rel="stylesheet"
     />
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script
+      type="text/javascript"
+      src="https://www.gstatic.com/charts/loader.js"
+    ></script>
     <!-- css -->
-    <link rel="stylesheet" href="css/dashboard.css" />
-    <title>Dashboard</title>
+    <link rel="stylesheet" href="css/analytics.css" />
+    <title>Analytics</title>
   </head>
   <body>
     <header class="flex">
@@ -76,38 +79,12 @@
       </button>
 
       <div class="mainDiv">
-        <h1>Dashboard</h1>
-        <div class="cardsDiv">
-          <div class="card">
-            <div>Total Income</div>
-            <div class="totalValue">$ 4,000</div>
-            <button id="manageIncome">
-              <svg  width="16" height="16" fill="#0096C7"  viewBox="0 0 16 16">
-                <path d="M12.136.326A1.5 1.5 0 0 1 14 1.78V3h.5A1.5 1.5 0 0 1 16 4.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 13.5v-9a1.5 1.5 0 0 1 1.432-1.499L12.136.326zM5.562 3H13V1.78a.5.5 0 0 0-.621-.484L5.562 3zM1.5 4a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-13z"/>
-              </svg>Manage Income
-            </button>
-          </div>
-          <div class="card">
-            <div>Total Expenses</div>
-            <div class="totalValue">$ 3,450</div>
-            <button id="manageExpense">
-              <svg  width="16" height="16" fill="#0096C7"  viewBox="0 0 16 16">
-                <path d="M12.136.326A1.5 1.5 0 0 1 14 1.78V3h.5A1.5 1.5 0 0 1 16 4.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 13.5v-9a1.5 1.5 0 0 1 1.432-1.499L12.136.326zM5.562 3H13V1.78a.5.5 0 0 0-.621-.484L5.562 3zM1.5 4a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-13z"/>
-              </svg> Manage Expenses</button>
-          </div>
-          <div class="card">
-            <div>Total Savings</div>
-            <div class="totalValue">$ 423</div>
-          </div>
-
-        </div>
-        <div id="expensePieChart" style=" width: 800px; height: 400px;"></div>
-        <div id="incomePieChart" style=" width: 800px; height: 400px;"></div>
+        <h1>Analytics</h1>
       </div>
     </main>
 
     <footer class="flexCenter">&copy; 2022, FinTrack</footer>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="js/dashboard.js"></script>
+    <script src="js/analytics.js"></script>
   </body>
 </html>

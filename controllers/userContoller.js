@@ -1,5 +1,5 @@
-const User = require("./../models/userModel");
-const Budget = require("./../models/budgetModel");
+const User = require("../models/userModel");
+const Budget = require("../models/budgetModel");
 const fs = require("fs");
 //---------------------------------------------------------------------------
 exports.signUp = async function (req, res) {
@@ -29,13 +29,9 @@ exports.login = async function (req, res) {
     console.log(req.body);
     const user = await User.find(req.body);
     if (user[0]) {
-      fs.readFile(
-        `${__dirname}/../views/dashboard.html`,
-        "utf-8",
-        (err, data) => {
-          res.status(200).send(data);
-        }
-      );
+      fs.readFile(`${__dirname}/../views/main.html`, "utf-8", (err, data) => {
+        res.status(200).send(data);
+      });
     } else {
       throw new Error("Invalid credentials");
     }
